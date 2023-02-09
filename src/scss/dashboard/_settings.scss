@@ -1,0 +1,126 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.settings__container {
+  margin-top: 5rem;
+  h2 {
+    font-family: v.$fuentePrincipal;
+    font-weight: 700;
+    color: v.$blanco;
+  }
+
+  .navegacion__setting {
+    padding-top: 3rem;
+    ul {
+      display: flex;
+      border-bottom: 1px solid v.$blanco;
+      width: 100%;
+
+      li {
+        position: relative;
+
+        a {
+          position: relative;
+          display: inline-block;
+          padding: 1rem 2rem;
+          font-size: 1.9rem;
+          color: v.$blanco;
+          font-weight: 500;
+          &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: v.$verde;
+            left: 0;
+            top: 41px;
+            transform: scaleX(0);
+            transition: all 0.4s ease;
+          }
+
+          &:hover::before {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+
+  .settigns__content {
+    display: flex;
+    align-items: flex-start;
+    place-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 4rem 0;
+
+    h3 {
+      flex-basis: 35%;
+      color: v.$blanco;
+      font-weight: 500;
+      font-family: v.$fuenteSecundaria;
+    }
+    .settigs-pages {
+      flex-basis: 65%;
+    }
+
+    .settings1 {
+      .campo {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 2rem;
+          color: v.$blanco;
+        }
+
+        .info_campo {
+          display: flex;
+          align-items: center;
+          margin-top: 1rem;
+          img {
+            border-radius: 50%;
+            background-size: cover;
+            width: 50px;
+          }
+        }
+      }
+
+      [type=file] {
+        height: 0.1px;
+        width: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+      [type=file] + label {
+        margin-left: 1rem;
+        @include m.boton (v.$transparent,v.$blanco){
+            margin-top: 0;
+
+            &:hover {
+                box-shadow: 0 0px 5px rgb(255, 255, 255, .700)!important;
+            }
+        };
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1.25rem;
+        font-weight: 700;
+        overflow: hidden;
+        padding: 0.625rem 1.25rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      
+    //   [type=file] + label:hover {
+    //     background-color: #722040;
+    //   }
+    //   [type=file]:focus + label {
+    //     background-color: #722040;
+    //     outline: 1px dotted #000;
+    //   }
+      
+    }
+  }
+}

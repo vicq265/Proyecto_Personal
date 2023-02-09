@@ -1,0 +1,114 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+footer {
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.205);
+    .copy-right {
+        color: v.$blanco;
+        padding-bottom: 1rem;
+    }
+}
+
+.footer__content {
+    color: v.$blanco;
+    padding: 2.5rem 0 2rem 0;
+    row-gap: 2rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    @include m.telefono {
+        flex-direction: row;
+    }
+
+    .footer__logo {
+        width: 100%;
+
+        @include m.telefono {
+            width: 30%;
+            border-right: 1px solid rgba(65, 37, 100, 0.671);
+        }
+        .logo {
+            background-color: v.$verde;
+            border-radius: 50%;
+            width: 10rem;
+            height: 10rem;
+            line-height: 10rem;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+
+    .footer__informacion {
+        width: 100%;
+
+        @include m.telefono {
+            width: 70%;
+        }
+
+        .informacion {
+            text-align: center;
+            @include m.telefono {
+                padding-left: 5rem;
+            }
+
+            .row__footer {
+                display: grid;
+                row-gap: 2rem;
+
+                @include m.telefono {
+                    @include m.grid (2, 0) 
+                }
+
+                @include m.tablet {
+                    @include m.grid (3, 0)
+                }
+            }
+
+            .footer-col {
+
+                .col-heading {
+                    margin: 0;
+                    margin-bottom: 2rem;
+                }
+
+                ul {
+                    a {
+                        margin: .8rem 0rem;
+                        font-size: 1.5rem;
+                        color: v.$blanco;
+                        display: block;
+                        transition:all .3s linear;
+                        &:hover{
+                            color: v.$verde;
+                        }
+                    }
+                }
+
+                .social-list {
+                    display: flex;
+                    justify-content: center;
+                    gap: .5rem;
+
+                    .fa-fw {
+                        width: 3rem;
+                        height: 3rem;
+                        border-radius: 50%;
+                        line-height: 3rem;
+                        text-align: center;
+                        transition: all .3s linear;
+                        background-color: v.$verde;
+                        
+                        &:hover {
+                            color: v.$verde;
+                            background-color: v.$blanco;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

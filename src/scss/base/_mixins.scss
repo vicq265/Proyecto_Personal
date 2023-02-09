@@ -1,0 +1,93 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktopXL {
+    @media (min-width: v.$desktopxl) {
+        @content;
+    }
+}
+
+
+@mixin boton($bgColor, $colorTexto) {
+    position: relative;
+    background-color: $bgColor;
+    padding: 1rem 3rem;
+    color: $colorTexto;
+    box-shadow: 1px 1px 30px -5px #5880f6;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    border-radius: 2rem;
+    font-weight: 400;
+    display: inline-block;
+    font-weight: 700;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    overflow: hidden;
+
+    & span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        transform: translate(-50%, -50%);
+        width: 0px;
+        height: 0px;
+        border-radius: 50px;
+        background: v.$primario;
+        z-index: 0;
+        transition: all .700s;
+    }
+
+    @content;
+
+    @include tablet {
+        width: auto;
+    }
+    // &:hover {
+    //     background-color: darken( $bgColor, 10% );
+    // }
+    &:hover{
+        transition: width 0.15s, height 0.15s;
+        box-shadow: 1px 1px 30px -5px #449de6;
+        &::before {
+            transition: all .700s;
+            width: 400px;
+            height: 300px;
+            border-radius: 50%;
+        } 
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+    @content;
+}
+
+.text-center {
+    text-align: center;
+}

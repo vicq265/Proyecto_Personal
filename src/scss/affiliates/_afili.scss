@@ -1,0 +1,206 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.afiliates__conatiner {
+  padding-top: 5rem;
+
+  .afiliates__user {
+    width: auto;
+    padding: 2rem;
+    background-color: v.$oscuro;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: v.$boxShadow;
+
+    @include m.tablet {
+      max-width: 400px;
+    }
+
+    .nmr {
+      font-size: 5rem;
+      font-weight: bold;
+      color: v.$blanco;
+    }
+    .icon {
+      font-size: 4rem;
+      color: v.$blanco;
+    }
+  }
+
+  .afiliates__flex {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 4rem;
+    align-items: flex-start;
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+
+  .afiliate__card {
+    box-shadow: v.$boxShadow;
+    background-color: v.$oscuro;
+    border-radius: 0.5rem;
+    width: 100%;
+    @include m.tablet {
+      width: 50%;
+    }
+
+    .card__header {
+      border-bottom: 1px solid rgba(204, 204, 204, 0.322);
+      padding: 2rem;
+
+      h2 {
+        font-size: 2rem;
+        color: v.$blanco;
+      }
+    }
+
+    .card__body {
+      padding: 2rem;
+      ul {
+        .rewar-item {
+          padding: 1rem 2rem;
+          color: v.$blanco;
+          display: inline-block;
+          margin: 0.2rem 0;
+          transition: all 0.5s ease;
+          width: 100%;
+          border-radius: 0.8rem;
+          font-size: 2rem;
+
+          &:hover {
+            color: v.$oscuro;
+            background-color: v.$blanco;
+          }
+        }
+      }
+
+      input[type="text"] {
+        appearance: none;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-radius: 0.5rem;
+        height: 3rem;
+        padding-inline: 2rem;
+        background-color: v.$blanco;
+      }
+    }
+
+    .card__table {
+      overflow: hidden;
+      overflow-x: auto;
+      .tabla {
+        border-collapse: collapse;
+        width: 100%;
+
+        tr {
+          border-bottom: 2px solid #412ec2;
+        }
+
+        th {
+          font-weight: 500;
+          font-size: 1.8rem;
+        }
+
+        td,
+        th {
+          padding: 1rem 2rem;
+          color: v.$blanco;
+          font-weight: 300;
+        }
+
+        td {
+          color: v.$grisClaro;
+        }
+
+        tr:hover {
+          background-color: rgba(221, 221, 221, 0.116);
+        }
+
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .titulo__banner{
+      color: v.$blanco;
+      margin: 3rem 0;
+  }
+  
+  .banner {
+      margin-top: 5rem;
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      @include m.tablet {
+          flex-direction: row;
+          justify-content: space-around;
+      }
+      &.mt-0 {
+          margin-top: 0;
+      }
+
+      &.reverse {
+          flex-direction: column;
+          @include m.tablet {
+              flex-direction: row-reverse!important;
+          }
+      }
+
+      &.column {
+          flex-direction: column;
+      }
+
+      .banner__img {
+          margin: 0 auto;
+          width: auto;
+          @include m.tablet {
+            width: 300px;
+          }
+          
+          &.large1 {
+              width: auto;
+            @include m.desktop {
+                width: 800px;
+              }
+          }
+      }
+
+      .banner__inputs {
+          width: 100%;
+          @include m.tablet {
+              width: 50%;
+          }
+          textarea {
+              overflow: hidden;
+              background-color: v.$primario;
+              color: v.$blanco;
+              padding: 2rem;
+              width: 100%;
+              max-width: 100%;
+              height: 120px;
+              max-height: 200px;
+              border: none;
+              outline: none;
+              border-radius: .5rem;
+          }
+      }
+  }
+  
+}

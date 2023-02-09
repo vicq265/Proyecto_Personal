@@ -1,0 +1,93 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+:root {
+  --modal-duration: 1s;
+}
+
+.boton {
+ @include m.boton (v.$transparent, v.$blanco);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modal-content {
+    margin: 10% auto;
+    width: 500px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+  }
+
+  .modal-header {
+    background: v.$primario;
+    padding: 1rem;
+    color: #fff;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .closeModal {
+      font-size: 3.5rem;
+      cursor: pointer;
+  }
+
+  .modal-body {
+    padding: 10px 20px;
+    background: v.$oscuro;
+  }
+
+  .modal-footer {
+    background: v.$primario;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+  &:hover,
+  &:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+   @keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
